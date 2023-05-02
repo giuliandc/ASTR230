@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #3dff8d;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Giulia Nóbrega da Costa</h1>
+  <p>Astrophysics</p>
+  <p>Rice University '25.</p>
+</div>
+
+<div class="navbar">
+  <a href="#">Projects</a>
+</div>
+
+
+<div class="main"> 
+    <h2>Temperature mapping of gas clouds in the ISM</h2>
+    <h5>This is the research project I came up with for my ASTR230 class (Spring 2023). Our goal was to design an imaging or spectrometry project that allowed us to collect our own data and reduce it in order to explore an astronomical object or phenomenon.</h5>
+    
+    <h3>Goal</h3>
+    
+    <p>To study gas clouds in the interstellar medium, and determine if their temperature can be correlated to their spatial distribution.</p>
+    <h3>Theory</h3>
+    <p>There are 3 main types of ISM matter:</p>
+    <ul>
+    <li>Cold clouds - 100K, highest density</li>
+    <li>Warm ISM - 10<sup>4</sup>K, intermediate density</li>
+    <li>Coronal gas - 10<sup>6</sup>K, lowest density</li>
+    </ul>
+    <p>This project will only focus on the first two types, and that is because the method chosen to measure those temperatures is not able to detect hotter clouds.</p>
+    <p>The way we are determining the temperature of clouds is by looking at the sodium absorption lines(around 5890<span>&#8491;</span> and 5896<span>&#8491;</span>) in the spectra of such objects. Sodium was chosen becase it is an abundant element in the ISM, so it would be easy to find it in the gas clouds, and because of its ionization energy, that would allow for us to find neutral sodium in the first two types of clouds but not in coronal gas, since the atoms would be mostly ionized in such an environment given the hot temperature of these gas clouds.</p>
+    <p>From our stellar spectra we will measure the equivalent width of the absorption lines and by that find the average velocity of a molecule in the gas, knowing that such velocity is given by v=c*<span>&#x394;</span><span>&#x3BB;</span>/<span>&#x3BB;</span></p>
+    <img src="https://i.imgur.com/tABHZKp.png" style="height:400px;">
+    <figcaption>Sodium absorption lines in spectrum of HD47240</figcaption>
+    
+    <p>Then, using the kinetic theory of gases, that states that the kinetic energy is 3/2 KT, so v<span>&#8773;</span> = <span>&#8730;</span>(KT/m).</p>
+    <p>The parameters I decided to analyse were galactic latitude and distance. Since the particle density in our galaxy is higher closer to the galactic equator, I wanted to see if clouds that were further from it would be hotter, since as stated before hotter clouds are less dense than cold clouds. Moreover, I predicted that it would probably be easier to find hotter clouds on the way to further stars, since they are theoretically predicted to be less common. </p>
+    
+    <h3>Target List</h3>
+    
+    <p>The stars I chose were all B stars, because they are hot enough so all sodium in them is ionized and would not be present in the spectra. Moreover, they are all brighter than 8th magnitude since our equipment was not able to go much fainter than that.</p>
+    <p>I tried to find stars in the same region of the sky, so if there was something outside the scope of this project affecting the results for a star it would be likely to impact most, if not all, stars and would not need to be considered for the final results.</p>
+    <p>The list of stars can be seen below. For sake of simplicity, the list already has the gas clouds temperature calculated, but these numbers will be discussed later on.</p>
+    <img src="https://i.imgur.com/kA1TjFl.jpg" style="height:400px;">
+    <figcaption>Target list</figcaption>
+    <p>The values in the table are not following the number of significant figures, they are the result of formulas applied to spreadsheet cells. The number of significant figures for temperature should be 4.</p>
+    
+    <h3>Data Collection</h3>
+    
+    <p>All my data was collected in the Rice University Campus Observatory, using the spectrometer with the micrometer setting set at 1670<span>&#956;</span>m. I used exposures of 7,10 and 12.5 minutes in order to balance good SNRs with being able to get spectra for multiple stars.</p>
+    <p>Unfortunately, I had few clear nights, and my targets set early, so I was not able to get multiple spectra for each star, something I wanted in order to make sure my data was consistent.</p>
+    
+    <h3>Data reduction</h3>
+    
+    <p>I reduced all my data in IRAF. This involved cropping the input files, subtracting the bias, flattening the spectrum, doing a wavelength calibration, and finally perform the profile extraction.</p>
+    <p>The wavelength calibration was particularly challenging since I was working with high-resolution spectroscopy and did not have many lines in my calibration files. Because of that I made sure to create my lamp files especially carefully in order to make sure my final spectrum was as accurate as it would be.</p>
+    <p>Another concer I had was regarding bad pixels. Because my stars were not super bright, any bad pixel I had could wreck the data. Because of that, I had to pay special attention to carefully cleaning my images in order to not disturb my data.</p>
+    
+    <h3>Statistics</h3>
+    
+    <p>As I said before, I wanted to analyse temperature as a function of both latitude and distance at the same time, since I thought they could both impact T simultaneously. I decided to focus on the impact of latitude first, so I grouped my stars in different categories and made spatial plots to see if there was any correlation between temperature and latitude for each category. The plots can be seen below: </p>
+    
+    <img src="https://i.imgur.com/VMrhtWA.png" style="height:300px;">
+    <img src="https://i.imgur.com/UtDL2ah.png" style="height:300px;">
+    <img src="https://i.imgur.com/IdUKfwu.png" style="height:300px;">
+    <img src="https://i.imgur.com/1AQWeS9.png" style="height:300px;">
+    
+    <p>There did not seem to be any correlation, since in each plot the hottest values would be at completely different locations. Since there was no clear pattern, I decided to then analyse T vs distance, since if there was a dependence now there would be only one variable to be analysed.</p>
+    <p>As can be seen in the histogram below, most of my stars were within 2000pc from Earth, with only 3 stars further than that. I decided that if I included those 3 stars, that region of the graph would be underrepresented and my linear regression would not be as good of a method to analyse my data.</p>
+    <img src="https://i.imgur.com/zhVnocK.png" style="height:300px;">
+    <img src="https://i.imgur.com/Z1PRIBg.png" style="height:300px;">
+    <figcaption>Plot of temperature vs distance (r<sup>2</sup> = 0.69)</figcaption>
+    
+    <p>As can be seen, there is a moderate correlation between these 2 values, which would at first, apparently, indicate that hotter clouds are formed. This is a biased distribution, though.</p>
+    <p>Imagine there are two clouds on the way to a star, then the width of the absorption lines will be representative of the hotter cloud, since that will be wider, and it will not be possible to detect the colder cloud. If we look at the stars that are closest to us, we can find cold clouds in those regions, which means that those clouds are also present on the way to further stars, but we cannot measure them because of the presence of hotter clouds on the line of sight.</p>
+    <p>This would indicate that that correlation is only obtained because it is more likely to find a hotter cloud if we have more space available for its ocurrence. Therefore, while I could not find a correlation between spatial location of a cloud and its temperature, I got to the conclusion that colder clouds are more common than hotter clouds.</p>
+    
+    <h3>Theoretical adjustments</h3>
+    
+    <p>The temperatures I found for the clouds were surprisingly high! In fact I expected most of my clouds to be cold clouds. The reason for that may be the turbulence of such clouds, that was disregarded in this project, but would add to the velocity of the atoms in the gas and lead to the detection of higher temperatures.</p>
+    <p>In the future, it would be interesting to repeat the experiment taking that aspect into consideration and knowing more about the theory of the ISM.</p>
+
+<div class="footer">
+  <p>giulia@rice.edu</p>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>
